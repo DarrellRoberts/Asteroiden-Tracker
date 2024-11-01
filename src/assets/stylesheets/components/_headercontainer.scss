@@ -1,0 +1,19 @@
+.header-container {
+  width: 100%;
+  & h1 {
+    text-align: center;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+// @media screen and (min-width: $breakpoint-medium) {
+// }
