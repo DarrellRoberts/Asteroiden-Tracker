@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+defineProps({
+  fetchedData: Array,
+  loading: Boolean,
+});
+</script>
 
 <template>
   <h2>Hier steht der Header</h2>
