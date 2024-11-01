@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <h2>Hier steht der Header</h2>
+  <h1>Asteroiden Tracker</h1>
 </template>
 
 <style lang="scss" scoped></style>

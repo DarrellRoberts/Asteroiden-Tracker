@@ -1,0 +1,32 @@
+@use "../abstracts" as *;
+
+.header-wrapper,
+.footer-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-wrapper {
+  display: grid;
+  height: $full-height;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax($minimum-grid-column-width, 1fr)
+  );
+  justify-items: center;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+  .main-wrapper {
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .asteroid-wrapper {
+    grid-row: span 2;
+    align-self: center;
+  }
+  .graph-wrapper {
+    grid-column-start: 2;
+  }
+}
