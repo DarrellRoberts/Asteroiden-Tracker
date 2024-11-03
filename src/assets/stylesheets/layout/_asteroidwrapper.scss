@@ -1,0 +1,7 @@
+@use "../abstracts/" as *;
+
+@media screen and (min-width: $breakpoint-medium) {
+  .asteroid-wrapper {
+    grid-row: span 2;
+  }
+}

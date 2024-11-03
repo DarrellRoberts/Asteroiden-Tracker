@@ -12,23 +12,13 @@ defineProps({
 </script>
 
 <template>
-  <header class="header-wrapper">
-    <Header :fetched-data="fetchedData" :loading="loading" />
-  </header>
+  <Header :fetched-data="fetchedData" :loading="loading" />
   <main class="main-wrapper">
-    <section class="asteroid-wrapper">
-      <AsteroidContainer :fetched-data="fetchedData" :loading="loading" />
-    </section>
-    <section>
-      <StatsGrid :fetched-data="fetchedData" :loading="loading" />
-    </section>
-    <section class="graph-wrapper">
-      <Graph :fetched-data="fetchedData" :loading="loading" />
-    </section>
+    <AsteroidContainer :fetched-data="fetchedData" :loading="loading" />
+    <StatsGrid :fetched-data="fetchedData" :loading="loading" />
+    <Graph :fetched-data="fetchedData" :loading="loading" />
   </main>
-  <footer class="footer-wrapper">
-    <Footer />
-  </footer>
+  <Footer />
 </template>
 
 <style lang="scss" scoped>

@@ -8,7 +8,6 @@ const props = defineProps({
 
 <template>
   <div class="orbit-container">
-    <h2>{{ asteroidName }}</h2>
     <div class="orbit-one">
       <div class="orbit-item">
         <img
@@ -23,5 +22,5 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
-@use "../../assets/stylesheets/components/asteroid";
+@use "../../assets/stylesheets/components/asteroid-container/asteroid";
 </style>

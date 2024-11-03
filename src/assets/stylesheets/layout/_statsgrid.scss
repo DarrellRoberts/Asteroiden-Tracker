@@ -1,0 +1,34 @@
+@use "../abstracts" as *;
+
+.stats-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 2rem;
+}
+
+.stats-grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: clamp(100px, 15vw, 200px);
+  width: clamp(100px, 20vw, 300px);
+}
+
+@media screen and (min-width: $breakpoint-small) {
+  .stats-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: $breakpoint-small-medium) {
+  .stats-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: $breakpoint-large) {
+  .stats-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
