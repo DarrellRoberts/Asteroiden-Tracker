@@ -1,0 +1,29 @@
+@use "../abstracts/" as *;
+
+.stats-grid-container {
+  margin-bottom: 2rem;
+  & h3 {
+    color: $bg-secondary-color;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+.stats-grid-item {
+  border-radius: $rounded;
+  -webkit-box-shadow: 0px 0px 9px 3px $bg-secondary-color;
+  box-shadow: 0px 0px 9px 3px $bg-secondary-color;
+}
+
+.stats-grid-item:hover,
+.stats-grid-item:focus {
+  -webkit-box-shadow: 0px 0px 9px 3px $font-main-color;
+  box-shadow: 0px 0px 9px 3px $font-main-color;
+}
+
+.stats-grid-flex-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

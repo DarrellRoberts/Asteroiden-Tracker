@@ -1,12 +1,14 @@
-@use "../abstracts" as *;
+@use "../../abstracts" as *;
 
 .orbit-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-color: $font-main-color;
-  border-style: solid;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
+  margin: 1rem;
+  padding: 3rem;
+  background-color: $bg-main-color;
+  border-radius: $rounded;
 }
 
 .orbit-one {
@@ -20,6 +22,9 @@
   right: 0px;
   border-radius: 50%;
   animation: orbit 5s linear 0s infinite;
+  & img {
+    width: 20px;
+  }
 }
 
 @keyframes orbit {
@@ -44,4 +49,20 @@
 .non-hazardous {
   -webkit-box-shadow: 0px 0px 25px 12px $asteroid-fire-color;
   box-shadow: 0px 0px 25px 12px $asteroid-fire-color;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+  .orbit-item {
+    & img {
+      width: 30px;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-large) {
+  .orbit-item {
+    & img {
+      width: 50px;
+    }
+  }
 }

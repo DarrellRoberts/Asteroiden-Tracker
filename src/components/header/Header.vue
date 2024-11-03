@@ -6,6 +6,7 @@ defineProps({
 </script>
 
 <template>
+    <header class="header-wrapper">
   <div class="header-container">
     <h1>Asteroiden Tracker</h1>
     <div class="button-container">
@@ -17,8 +18,11 @@ defineProps({
       <span>Next</span>
     </div>
   </div>
+  </header>
 </template>
 
 <style lang="scss" scoped>
 @use "../../assets/stylesheets/components/headercontainer";
+@use "../../assets/stylesheets/layout/main";
+
 </style>
