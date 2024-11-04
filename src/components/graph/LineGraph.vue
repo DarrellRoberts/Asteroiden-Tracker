@@ -10,8 +10,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { dataJson } from "../../functions/dataJson.js";
 import { getCloseApproachYears, getMissDistance } from "../../functions/graph";
+import { computed } from "vue";
 
 ChartJS.register(
   CategoryScale,
@@ -23,19 +23,24 @@ ChartJS.register(
   Legend
 );
 
-const xAxis = getCloseApproachYears(dataJson);
-const yAxis = getMissDistance(dataJson);
+const props = defineProps({
+  fetchedData: Object,
+  loading: Boolean,
+});
 
-const asteroidName = dataJson.name;
+const xAxis = computed(() => getCloseApproachYears(props.fetchedData));
+const yAxis = computed(() => getMissDistance(props.fetchedData));
+
+const asteroidName = computed(() => props?.fetchedData?.name);
 
 const data = {
-  labels: xAxis,
+  labels: xAxis?.value,
   datasets: [
     {
-      label: `${asteroidName}`,
+      label: `${asteroidName.value}`,
       color: "#FFFFFF",
       backgroundColor: "#FFFFFF",
-      data: yAxis,
+      data: yAxis?.value,
       borderColor: "#d36dde",
       tension: 0.5,
     },
@@ -54,8 +59,8 @@ const options = {
     tooltip: {
       callbacks: {
         label: (context) => {
-          const year = xAxis[context.dataIndex];
-          const missDistance = yAxis[context.dataIndex];
+          const year = xAxis?.value[context.dataIndex];
+          const missDistance = yAxis?.value[context.dataIndex];
           return `Jahr ${year}: ${parseFloat(missDistance).toFixed(3)} AE `;
         },
       },

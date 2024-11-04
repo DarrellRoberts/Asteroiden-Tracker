@@ -1,7 +1,7 @@
 <script setup>
 import LineGraph from "./LineGraph.vue";
 defineProps({
-  fetchedData: Array,
+  fetchedData: Object,
   loading: Boolean,
 });
 </script>
@@ -9,7 +9,9 @@ defineProps({
 <template>
   <section class="graph-wrapper">
     <h2>Entfernung vor Erde (AE)</h2>
-    <LineGraph />
+    <div v-if="!loading">
+      <LineGraph :fetched-data="fetchedData" :loading="loading" />
+    </div>
   </section>
 </template>
 
