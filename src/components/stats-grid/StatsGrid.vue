@@ -19,10 +19,10 @@ const orbitingBodies = computed(() => getOrbitingBodies(dataJson));
 const lastObservedDate = computed(() => getLastObservedDate(dataJson));
 const firstObservedDate = computed(() => getFirstObservedDate(dataJson));
 const magnitude = computed(() => getMagnitude(dataJson));
-const fastestSpeed = computed(() => parseInt(getFastestSpeed(dataJson), 10));
-const size = computed(() => parseInt(getEstSize(dataJson), 10));
-
-console.log(orbitingBodies);
+const fastestSpeed = computed(() =>
+  parseFloat(getFastestSpeed(dataJson)).toFixed(2)
+);
+const size = computed(() => parseFloat(getEstSize(dataJson)).toFixed(2));
 </script>
 
 <template>
@@ -42,7 +42,7 @@ console.log(orbitingBodies);
         </div>
       </div>
       <div class="stats-grid-flex-box">
-        <h3>Magnitude (H)</h3>
+        <h3>Magnitude</h3>
         <div class="stats-grid-item">
           <h3>{{ magnitude }} H</h3>
         </div>

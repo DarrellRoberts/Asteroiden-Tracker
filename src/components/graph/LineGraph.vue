@@ -56,7 +56,7 @@ const options = {
         label: (context) => {
           const year = xAxis[context.dataIndex];
           const missDistance = yAxis[context.dataIndex];
-          return `Jahr ${year}: ${missDistance} AE `;
+          return `Jahr ${year}: ${parseFloat(missDistance).toFixed(3)} AE `;
         },
       },
     },
