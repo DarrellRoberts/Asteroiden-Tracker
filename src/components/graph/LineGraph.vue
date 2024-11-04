@@ -10,6 +10,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { dataJson } from "../../functions/dataJson.js";
+import { getCloseApproachYears, getMissDistance } from "../../functions/graph";
 
 ChartJS.register(
   CategoryScale,
@@ -21,13 +23,21 @@ ChartJS.register(
   Legend
 );
 
+const xAxis = getCloseApproachYears(dataJson);
+const yAxis = getMissDistance(dataJson);
+
+const asteroidName = dataJson.name;
+
 const data = {
-  labels: ["January", "February", "March", "April", "May", "June", "July"],
+  labels: xAxis,
   datasets: [
     {
-      label: "Data One",
-      backgroundColor: "#f87979",
-      data: [40, 39, 10, 40, 39, 80, 40],
+      label: `${asteroidName}`,
+      color: "#FFFFFF",
+      backgroundColor: "#FFFFFF",
+      data: yAxis,
+      borderColor: "#d36dde",
+      tension: 0.5,
     },
   ],
 };
@@ -35,6 +45,46 @@ const data = {
 const options = {
   responsive: true,
   maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      labels: {
+        color: "#FFFFFF",
+      },
+    },
+    tooltip: {
+      callbacks: {
+        label: (context) => {
+          const year = xAxis[context.dataIndex];
+          const missDistance = yAxis[context.dataIndex];
+          return `Jahr ${year}: ${missDistance} AE `;
+        },
+      },
+    },
+  },
+  scales: {
+    y: {
+      title: {
+        text: "AE - 150 Mio Km",
+        color: "#FFFFFF",
+        display: true,
+        font: {
+          size: 16,
+          family: "Space Grotesk",
+        },
+      },
+    },
+    x: {
+      title: {
+        text: "Jahr (Vergangenheit und Zukunft)",
+        color: "#FFFFFF",
+        display: true,
+        font: {
+          size: 16,
+          family: "Space Grotesk",
+        },
+      },
+    },
+  },
 };
 </script>
 

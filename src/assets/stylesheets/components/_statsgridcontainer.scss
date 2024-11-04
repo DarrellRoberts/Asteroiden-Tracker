@@ -19,6 +19,10 @@
 .stats-grid-item:focus {
   -webkit-box-shadow: 0px 0px 9px 3px $font-main-color;
   box-shadow: 0px 0px 9px 3px $font-main-color;
+  cursor: pointer;
+  & h3 {
+    color: $font-main-color;
+  }
 }
 
 .stats-grid-flex-box {
@@ -26,4 +30,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.planet-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  width: 100%;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+  .stats-grid-container {
+    margin-right: 2rem;
+  }
+  .planet-container {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
 }

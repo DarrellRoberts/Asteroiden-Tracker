@@ -8,7 +8,7 @@ defineProps({
 
 <template>
   <section class="graph-wrapper">
-    <h2>Entfernung vom Planeten (astronomische Meilen)</h2>
+    <h2>Entfernung vor Erde (AE)</h2>
     <LineGraph />
   </section>
 </template>
