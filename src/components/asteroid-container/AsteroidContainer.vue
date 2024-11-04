@@ -6,23 +6,24 @@ import {
   getFullName,
   getNasaLink,
 } from "../../functions/asteroidContainer";
-import { dataJson } from "../../functions/dataJson";
 import { computed } from "vue";
 
-defineProps({
-  fetchedData: Array,
+const props = defineProps({
+  fetchedData: Object,
   loading: Boolean,
+  index: Number,
 });
 
-const hazard = computed(() => (hazardous(dataJson) ? "Ja" : "Nein"));
-const nameShort = computed(() => nameLimited(dataJson));
-const nameFull = computed(() => getFullName(dataJson));
-const nasaLink = computed(() => getNasaLink(dataJson));
+const hazard = computed(() => hazardous(props.fetchedData));
+const nameShort = computed(() => nameLimited(props.fetchedData));
+const nameFull = computed(() => getFullName(props.fetchedData));
+const nasaLink = computed(() => getNasaLink(props.fetchedData));
 </script>
 
 <template>
   <section class="asteroid-wrapper">
     <h2>{{ nameShort }}</h2>
+    <h2 v-if="index === 0">(Der letzte beobachtete Asteroid)</h2>
     <div class="asteroid-flex-box">
       <div>
         <Asteroid
@@ -38,7 +39,7 @@ const nasaLink = computed(() => getNasaLink(dataJson));
             Voller Name: <i>{{ nameFull }}</i>
           </li>
           <li>
-            Gefährlich: <i>{{ hazard }}</i>
+            Gefährlich: <i>{{ hazard ? "Ja" : "Nein" }}</i>
           </li>
           <li>
             <a :href="nasaLink" target="_blank"> Link zur NASA-Datenbank </a>

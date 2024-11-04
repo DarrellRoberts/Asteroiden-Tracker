@@ -7,22 +7,25 @@ import {
   getFastestSpeed,
   getEstSize,
 } from "../../functions/statsGrid";
-import { dataJson } from "../../functions/dataJson";
 import { computed } from "vue";
 
-defineProps({
-  fetchedData: Array,
+const props = defineProps({
+  fetchedData: Object,
   loading: Boolean,
 });
 
-const orbitingBodies = computed(() => getOrbitingBodies(dataJson));
-const lastObservedDate = computed(() => getLastObservedDate(dataJson));
-const firstObservedDate = computed(() => getFirstObservedDate(dataJson));
-const magnitude = computed(() => getMagnitude(dataJson));
-const fastestSpeed = computed(() =>
-  parseFloat(getFastestSpeed(dataJson)).toFixed(2)
+const orbitingBodies = computed(() => getOrbitingBodies(props.fetchedData));
+const lastObservedDate = computed(() => getLastObservedDate(props.fetchedData));
+const firstObservedDate = computed(() =>
+  getFirstObservedDate(props.fetchedData)
 );
-const size = computed(() => parseFloat(getEstSize(dataJson)).toFixed(2));
+const magnitude = computed(() => getMagnitude(props.fetchedData));
+const fastestSpeed = computed(() =>
+  parseFloat(getFastestSpeed(props.fetchedData)).toFixed(2)
+);
+const size = computed(() =>
+  parseFloat(getEstSize(props.fetchedData)).toFixed(2)
+);
 </script>
 
 <template>

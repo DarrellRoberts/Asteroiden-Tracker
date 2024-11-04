@@ -6,15 +6,20 @@ import StatsGrid from "../components/stats-grid/StatsGrid.vue";
 import Footer from "../components/footer/Footer.vue";
 
 defineProps({
-  fetchedData: Array,
+  fetchedData: Object,
   loading: Boolean,
+  index: Number,
 });
 </script>
 
 <template>
-  <Header :fetched-data="fetchedData" :loading="loading" />
+  <Header :index="index" />
   <main class="main-wrapper">
-    <AsteroidContainer :fetched-data="fetchedData" :loading="loading" />
+    <AsteroidContainer
+      :fetched-data="fetchedData"
+      :loading="loading"
+      :index="index"
+    />
     <StatsGrid :fetched-data="fetchedData" :loading="loading" />
     <Graph :fetched-data="fetchedData" :loading="loading" />
   </main>
