@@ -3,7 +3,7 @@
 .stats-grid-container {
   margin-bottom: 2rem;
   & h3 {
-    color: $bg-secondary-color;
+    color: $font-main-color;
     font-size: 1rem;
     text-align: center;
   }
@@ -13,6 +13,9 @@
   border-radius: $rounded;
   -webkit-box-shadow: 0px 0px 9px 3px $bg-secondary-color;
   box-shadow: 0px 0px 9px 3px $bg-secondary-color;
+  & h3 {
+    color: $bg-secondary-color;
+  }
 }
 
 .stats-grid-item:hover,
