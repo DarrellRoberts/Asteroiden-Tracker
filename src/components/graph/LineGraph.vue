@@ -109,5 +109,5 @@ const options = {
 </template>
 
 <style scoped lang="scss">
-@use "../../assets/stylesheets/components/linegraph";
+@use "../../assets/stylesheets/components/graph/linegraph";
 </style>

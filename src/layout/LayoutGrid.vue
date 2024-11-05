@@ -73,6 +73,8 @@ onMounted(() => {
   <Header
     :index="index"
     :showRandom="showRandom"
+    :loading="loading"
+    :data-size="fetchedData?.length"
     @incrementIndex="incrementIndex"
     @decreaseIndex="decreaseIndex"
     @randomise="randomise"

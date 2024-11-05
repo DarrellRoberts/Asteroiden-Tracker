@@ -2,10 +2,17 @@
 
 <template>
   <footer class="footer-wrapper">
-    <h2>Hier steht der Footer</h2>
+    <span>
+      Ein Demo vom NASA API wird für dies Projekt genutzt. Pro IP gibt es
+      täglich 50 Anfragen und stündlich 30 Anfragen pro IP.
+      <a href="https://api.nasa.gov/" alt="nasa-api" target="_blank"
+        >Mehr efahren</a
+      >
+    </span>
   </footer>
 </template>
 
 <style lang="scss" scoped>
 @use "../../assets/stylesheets/layout/main";
+@use "../../assets/stylesheets/components/footer/footer";
 </style>

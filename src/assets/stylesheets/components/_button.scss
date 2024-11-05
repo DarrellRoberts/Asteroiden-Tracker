@@ -1,12 +1,5 @@
 @use "../abstracts/" as *;
 
-.header-container {
-  width: 100%;
-  & h1 {
-    text-align: center;
-  }
-}
-
 .button-container {
   display: flex;
   justify-content: space-evenly;
@@ -22,21 +15,7 @@
   }
   & button:active {
     transform: scale(0.8);
+    background-color: $bg-main-color;
+    color: $bg-secondary-color;
   }
-}
-.navigation-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  & span {
-    cursor: pointer;
-  }
-}
-.hide-prev {
-  visibility: hidden;
-}
-.arrow-box {
-  display: flex;
-  flex-direction: column;
-  margin: 0 1rem;
 }

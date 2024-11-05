@@ -1,14 +1,28 @@
 <script setup>
+import Modal from "../modal/Modal.vue";
+import { ref } from "vue";
+
 defineProps({
   index: Number,
   showRandom: Boolean,
+  loading: Boolean,
+  dataSize: Number,
 });
-
 defineEmits(["incrementIndex", "decreaseIndex", "randomise"]);
+
+const showModal = ref(false);
+const handleModal = () => {
+  return (showModal.value = !showModal.value);
+};
 </script>
 
 <template>
   <header class="header-wrapper">
+    <Modal
+      v-if="showModal"
+      :show-modal="showModal"
+      @handleModal="handleModal"
+    />
     <div class="header-container">
       <h1>Asteroiden Tracker</h1>
       <div class="button-container">
@@ -18,7 +32,7 @@ defineEmits(["incrementIndex", "decreaseIndex", "randomise"]);
         >
           Randomise
         </button>
-        <button>Filter</button>
+        <button @click="handleModal">Legend</button>
       </div>
       <div class="navigation-container">
         <div :class="index === 0 ? 'hide-prev arrow-box' : 'arrow-box'">
@@ -29,7 +43,13 @@ defineEmits(["incrementIndex", "decreaseIndex", "randomise"]);
             width="50"
           />
         </div>
-        <div :class="index === 19 ? 'hide-prev arrow-box' : 'arrow-box'">
+        <div
+          :class="
+            index === dataSize - 1 || loading
+              ? 'hide-prev arrow-box'
+              : 'arrow-box'
+          "
+        >
           <span @click="$emit('incrementIndex')">Next</span>
           <img
             src="../../assets/images/header-right-arrow.svg"
@@ -43,6 +63,6 @@ defineEmits(["incrementIndex", "decreaseIndex", "randomise"]);
 </template>
 
 <style lang="scss" scoped>
-@use "../../assets/stylesheets/components/headercontainer";
+@use "../../assets/stylesheets/components/header/headercontainer";
 @use "../../assets/stylesheets/layout/main";
 </style>

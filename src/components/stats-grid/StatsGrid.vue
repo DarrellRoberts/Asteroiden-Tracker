@@ -31,37 +31,46 @@ const size = computed(() => getEstSize(props.fetchedData));
       <div class="stats-grid-flex-box">
         <h3>Größe</h3>
         <div class="stats-grid-item">
-          <h3>{{ size }} km (Dm)</h3>
+          <h3 v-if="!loading">{{ size }} km (Dm)</h3>
+          <h3 v-else>Wird geladen</h3>
         </div>
       </div>
       <div class="stats-grid-flex-box">
         <h3>d.G.</h3>
         <div class="stats-grid-item">
-          <h3>{{ fastestSpeed }} km/S</h3>
+          <h3 v-if="!loading">{{ fastestSpeed }} km/S</h3>
+          <h3 v-else>Wird geladen</h3>
         </div>
       </div>
       <div class="stats-grid-flex-box">
         <h3>Magnitude</h3>
         <div class="stats-grid-item">
-          <h3>{{ magnitude }} H</h3>
+          <h3 v-if="!loading">{{ magnitude }} H</h3>
+          <h3 v-else>Wird geladen</h3>
         </div>
       </div>
       <div class="stats-grid-flex-box">
         <h3>e.b.D.</h3>
         <div class="stats-grid-item">
-          <h3>{{ firstObservedDate }}</h3>
+          <h3 v-if="!loading">{{ firstObservedDate }}</h3>
+          <h3 v-else>Wird geladen</h3>
         </div>
       </div>
       <div class="stats-grid-flex-box">
         <h3>l.b.D.</h3>
         <div class="stats-grid-item">
-          <h3>{{ lastObservedDate }}</h3>
+          <h3 v-if="!loading">{{ lastObservedDate }}</h3>
+          <h3 v-else>Wird geladen</h3>
         </div>
       </div>
       <div class="stats-grid-flex-box">
         <h3>u.P.</h3>
-        <div class="stats-grid-item planet-container">
-          <div v-for="planet in orbitingBodies">
+        <div
+          :class="
+            !loading ? 'stats-grid-item planet-container' : 'stats-grid-item'
+          "
+        >
+          <div v-if="!loading" v-for="planet in orbitingBodies">
             <div class="planet-flex-box">
               <img
                 v-if="planet === 'Earth'"
@@ -96,6 +105,7 @@ const size = computed(() => getEstSize(props.fetchedData));
               <h3>{{ planet }}</h3>
             </div>
           </div>
+          <h3 v-else>Wird geladen</h3>
         </div>
       </div>
     </div>
@@ -104,5 +114,6 @@ const size = computed(() => getEstSize(props.fetchedData));
 
 <style lang="scss" scoped>
 @use "../../assets/stylesheets/layout/statsgrid";
-@use "../../assets/stylesheets/components/statsgridcontainer";
+@use "../../assets/stylesheets/components/stats-grid/statsgridcontainer";
+@use "../../assets/stylesheets/components/button";
 </style>
