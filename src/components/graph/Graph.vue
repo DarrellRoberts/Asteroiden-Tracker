@@ -1,6 +1,7 @@
 <script setup>
 import LineGraph from "./LineGraph.vue";
-defineProps({
+import { watch } from "vue";
+const props = defineProps({
   fetchedData: Object,
   loading: Boolean,
 });
@@ -12,6 +13,7 @@ defineProps({
     <div v-if="!loading">
       <LineGraph :fetched-data="fetchedData" :loading="loading" />
     </div>
+    <div v-else>Wird geladen</div>
   </section>
 </template>
 

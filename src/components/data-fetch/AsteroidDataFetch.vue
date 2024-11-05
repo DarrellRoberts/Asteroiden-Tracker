@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, watch } from "vue";
 import Layout from "../../layout/Layout.vue";
 import { mostRecentAsteroidArray } from "../../functions/dataSort";
 
@@ -26,14 +26,30 @@ const getData = async () => {
   }
 };
 
+const incrementIndex = () => index.value++;
+
+watch(index, (newIndex) => {
+  loading.value = true;
+  index.value = newIndex;
+  singleAsteroid.value = fetchedData.value[newIndex];
+  //sodass es eine neue Ladung von Chartjs auslöst
+  setTimeout(() => {
+    loading.value = false;
+  }, 0);
+});
+
 onMounted(() => {
   getData();
 });
 </script>
 
 <template>
-  <!-- <Layout :fetched-data="fetchedData" :loading="loading" /> -->
-  <Layout :fetched-data="singleAsteroid" :loading="loading" :index="index" />
+  <Layout
+    :fetched-data="singleAsteroid"
+    :loading="loading"
+    :index="index"
+    @incrementIndex="incrementIndex"
+  />
 </template>
 
 <style lang="scss" scoped></style>
