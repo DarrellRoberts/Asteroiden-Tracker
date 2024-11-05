@@ -26,7 +26,8 @@ const nasaLink = computed(() => getNasaLink(props.fetchedData));
   <section class="asteroid-wrapper">
     <h2>{{ nameShort }}</h2>
     <h3 class="last-observed-date">
-      l.b.D: <i> {{ lastObservedDate }}</i>
+      l.b.D: <i v-if="!loading"> {{ lastObservedDate }}</i>
+      <i v-else> Wird geladen</i>
     </h3>
     <div class="asteroid-flex-box">
       <div>
@@ -38,7 +39,7 @@ const nasaLink = computed(() => getNasaLink(props.fetchedData));
       </div>
       <div class="asteroid-info-box">
         <h3>Information</h3>
-        <ul>
+        <ul v-if="!loading">
           <li>
             Voller Name: <i>{{ nameFull }}</i>
           </li>
@@ -49,7 +50,7 @@ const nasaLink = computed(() => getNasaLink(props.fetchedData));
             <a :href="nasaLink" target="_blank"> Link zur NASA-Datenbank </a>
           </li>
         </ul>
-        <span>Mehr erfahren</span>
+        <h4 v-else>Wird geladen</h4>
       </div>
     </div>
   </section>

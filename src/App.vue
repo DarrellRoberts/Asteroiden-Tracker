@@ -1,10 +1,9 @@
 <script setup>
-import Layout from "./layout/Layout.vue";
+import LayoutGrid from "./layout/LayoutGrid.vue";
 </script>
 
 <template>
-  <!-- <AsteroidDataFetch /> -->
-  <Layout />
+  <LayoutGrid />
 </template>
 
 <style lang="scss">
