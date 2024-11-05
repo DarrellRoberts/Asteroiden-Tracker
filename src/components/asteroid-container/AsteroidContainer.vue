@@ -6,6 +6,7 @@ import {
   getFullName,
   getNasaLink,
 } from "../../functions/asteroidContainer";
+import { getLastObservedDate } from "../../functions/statsGrid";
 import { computed } from "vue";
 
 const props = defineProps({
@@ -14,6 +15,7 @@ const props = defineProps({
   index: Number,
 });
 
+const lastObservedDate = computed(() => getLastObservedDate(props.fetchedData));
 const hazard = computed(() => hazardous(props.fetchedData));
 const nameShort = computed(() => nameLimited(props.fetchedData));
 const nameFull = computed(() => getFullName(props.fetchedData));
@@ -23,7 +25,9 @@ const nasaLink = computed(() => getNasaLink(props.fetchedData));
 <template>
   <section class="asteroid-wrapper">
     <h2>{{ nameShort }}</h2>
-    <h2 v-if="index === 0">(Der letzte beobachtete Asteroid)</h2>
+    <h3 class="last-observed-date">
+      l.b.D: <i> {{ lastObservedDate }}</i>
+    </h3>
     <div class="asteroid-flex-box">
       <div>
         <Asteroid
@@ -39,7 +43,7 @@ const nasaLink = computed(() => getNasaLink(props.fetchedData));
             Voller Name: <i>{{ nameFull }}</i>
           </li>
           <li>
-            Gefährlich: <i>{{ hazard ? "Ja" : "Nein" }}</i>
+            Giftig: <i>{{ hazard ? "Ja" : "Nein" }}</i>
           </li>
           <li>
             <a :href="nasaLink" target="_blank"> Link zur NASA-Datenbank </a>

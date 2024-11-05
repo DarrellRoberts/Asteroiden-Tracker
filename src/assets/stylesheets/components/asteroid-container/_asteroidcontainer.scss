@@ -1,5 +1,19 @@
 @use "../../abstracts" as *;
 
+i {
+  color: $bg-secondary-color;
+  font-weight: 900;
+}
+
+.last-observed-date {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  & i {
+    margin-left: 1rem;
+  }
+}
+
 .asteroid-flex-box {
   display: flex;
   border-radius: $rounded;
@@ -28,8 +42,7 @@
       margin: 1rem 0rem;
       padding: 0rem 1rem;
     }
-    & li i,
-    li a:hover,
+    & li a:hover,
     li a:focus {
       color: $bg-secondary-color;
       font-weight: 900;

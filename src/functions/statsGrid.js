@@ -10,13 +10,17 @@ export const getOrbitingBodies = (fetchedObject) => {
 
 export const getLastObservedDate = (fetchedObject) => {
   if (fetchedObject) {
-    return fetchedObject?.orbital_data?.last_observation_date;
+    const fetchedDate = fetchedObject?.orbital_data?.last_observation_date;
+    const newDate = fetchedDate.split("-").reverse().join("-");
+    return newDate;
   }
 };
 
 export const getFirstObservedDate = (fetchedObject) => {
   if (fetchedObject) {
-    return fetchedObject?.orbital_data?.first_observation_date;
+    const fetchedDate = fetchedObject?.orbital_data?.first_observation_date;
+    const newDate = fetchedDate.split("-").reverse().join("-");
+    return newDate;
   }
 };
 
