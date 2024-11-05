@@ -8,6 +8,9 @@ const props = defineProps({
 
 <template>
   <div class="orbit-container">
+    <div class="earth-container">
+      <img src="../../assets/images/stats-grid-earth.svg" width="75px" />
+    </div>
     <div class="orbit-one">
       <div class="orbit-item">
         <img

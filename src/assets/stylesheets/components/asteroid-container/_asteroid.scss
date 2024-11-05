@@ -3,19 +3,28 @@
 .orbit-container {
   margin: 1rem;
   padding: 1rem;
-  background-color: $bg-main-color;
   border-radius: $rounded;
+}
+
+.earth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & img {
+    width: 40px;
+  }
 }
 
 .orbit-one {
   border-radius: 50%;
-  padding: 0.5rem;
+  padding: 0rem;
   animation: orbit 3s linear 0s infinite;
 }
 
 .orbit-item {
   position: absolute;
   right: 0px;
+  bottom: 40px;
   border-radius: 50%;
   animation: orbit 5s linear 0s infinite;
   & img {
@@ -48,6 +57,11 @@
 }
 
 @media screen and (min-width: $breakpoint-medium) {
+  .earth-container {
+    & img {
+      width: 75px;
+    }
+  }
   .orbit-item {
     & img {
       width: 30px;
