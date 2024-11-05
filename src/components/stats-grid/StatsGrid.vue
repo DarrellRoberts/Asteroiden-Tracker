@@ -20,12 +20,8 @@ const firstObservedDate = computed(() =>
   getFirstObservedDate(props.fetchedData)
 );
 const magnitude = computed(() => getMagnitude(props.fetchedData));
-const fastestSpeed = computed(() =>
-  parseFloat(getFastestSpeed(props.fetchedData)).toFixed(2)
-);
-const size = computed(() =>
-  parseFloat(getEstSize(props.fetchedData)).toFixed(2)
-);
+const fastestSpeed = computed(() => getFastestSpeed(props.fetchedData));
+const size = computed(() => getEstSize(props.fetchedData));
 </script>
 
 <template>
@@ -66,7 +62,39 @@ const size = computed(() =>
         <h3>u.P.</h3>
         <div class="stats-grid-item planet-container">
           <div v-for="planet in orbitingBodies">
-            <h3>{{ planet }}</h3>
+            <div class="planet-flex-box">
+              <img
+                v-if="planet === 'Earth'"
+                src="../../assets/images/stats-grid-earth.svg"
+                width="35px"
+                alt="Earth"
+              />
+              <img
+                v-if="planet === 'Juptr'"
+                src="../../assets/images/stats-grid-jupiter.svg"
+                width="35px"
+                alt="Jupiter"
+              />
+              <img
+                v-if="planet === 'Venus'"
+                src="../../assets/images/stats-grid-venus.svg"
+                width="35px"
+                alt="Venus"
+              />
+              <img
+                v-if="planet === 'Merc'"
+                src="../../assets/images/stats-grid-mercury.svg"
+                width="35px"
+                alt="Mercury"
+              />
+              <img
+                v-if="planet === 'Mars'"
+                src="../../assets/images/stats-grid-mars.svg"
+                width="35px"
+                alt="Mars"
+              />
+              <h3>{{ planet }}</h3>
+            </div>
           </div>
         </div>
       </div>

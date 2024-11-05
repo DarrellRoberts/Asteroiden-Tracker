@@ -61,7 +61,10 @@ const options = {
         label: (context) => {
           const year = xAxis?.value[context.dataIndex];
           const missDistance = yAxis?.value[context.dataIndex];
-          return `Jahr ${year}: ${parseFloat(missDistance).toFixed(3)} AE `;
+          return `Jahr ${year}: ${parseFloat(missDistance)
+            .toFixed(3)
+            .toString()
+            .replace(".", ",")} AE `;
         },
       },
     },
@@ -70,23 +73,29 @@ const options = {
     y: {
       title: {
         text: "AE - 150 Mio Km",
-        color: "#FFFFFF",
+        color: "#d36dde",
         display: true,
         font: {
           size: 16,
           family: "Space Grotesk",
         },
       },
+      ticks: {
+        color: "#FFFFFF",
+      },
     },
     x: {
       title: {
         text: "Jahr (Vergangenheit und Zukunft)",
-        color: "#FFFFFF",
+        color: "#d36dde",
         display: true,
         font: {
           size: 16,
           family: "Space Grotesk",
         },
+      },
+      ticks: {
+        color: "#FFFFFF",
       },
     },
   },

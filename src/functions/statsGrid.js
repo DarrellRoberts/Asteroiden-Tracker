@@ -27,7 +27,8 @@ export const getFirstObservedDate = (fetchedObject) => {
 export const getMagnitude = (fetchedObject) => {
   if (fetchedObject) {
     //H, Absolute Magnitude
-    return fetchedObject?.absolute_magnitude_h;
+    const magnitude = fetchedObject?.absolute_magnitude_h;
+    return magnitude.toString().replace(".", ",");
   }
 };
 
@@ -38,7 +39,7 @@ export const getFastestSpeed = (fetchedObject) => {
     );
     const topSpeed = Math.max(...speedArray);
     // Kilometer pro Sekunden
-    return topSpeed;
+    return topSpeed.toFixed(2).toString().replace(".", ",");
   }
 };
 
@@ -50,6 +51,6 @@ export const getEstSize = (fetchedObject) => {
       fetchedObject?.estimated_diameter.kilometers.estimated_diameter_max;
     const avgSize = (minSize + maxSize) / 2;
     // diameter in Kilometer
-    return avgSize;
+    return avgSize.toFixed(2).toString().replace(".", ",");
   }
 };
