@@ -13,6 +13,6 @@
 </template>
 
 <style lang="scss" scoped>
-@use "../../assets/stylesheets/layout/main";
+@use "../../assets/stylesheets/layout/wrappers/footerwrapper";
 @use "../../assets/stylesheets/components/footer/footer";
 </style>

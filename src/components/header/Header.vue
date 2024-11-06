@@ -64,5 +64,5 @@ const handleModal = () => {
 
 <style lang="scss" scoped>
 @use "../../assets/stylesheets/components/header/headercontainer";
-@use "../../assets/stylesheets/layout/main";
+@use "../../assets/stylesheets/layout/wrappers/footerwrapper";
 </style>

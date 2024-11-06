@@ -58,5 +58,5 @@ const nasaLink = computed(() => getNasaLink(props.fetchedData));
 
 <style lang="scss" scoped>
 @use "../../assets/stylesheets/components/asteroid-container/asteroidcontainer";
-@use "../../assets/stylesheets/layout/asteroidwrapper";
+@use "../../assets/stylesheets/layout/wrappers/asteroidwrapper";
 </style>
