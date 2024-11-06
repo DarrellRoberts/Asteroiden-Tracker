@@ -18,5 +18,5 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-@use "../../assets/stylesheets/layout/graphwrapper";
+@use "../../assets/stylesheets/layout/wrappers/graphwrapper";
 </style>

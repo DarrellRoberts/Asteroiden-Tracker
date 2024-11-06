@@ -113,7 +113,7 @@ const size = computed(() => getEstSize(props.fetchedData));
 </template>
 
 <style lang="scss" scoped>
-@use "../../assets/stylesheets/layout/statsgrid";
+@use "../../assets/stylesheets/layout/stats-grid/statsgrid";
 @use "../../assets/stylesheets/components/stats-grid/statsgridcontainer";
 @use "../../assets/stylesheets/components/button";
 </style>

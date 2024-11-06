@@ -1,12 +1,5 @@
 @use "../abstracts" as *;
 
-.header-wrapper,
-.footer-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
 .main-wrapper {
   display: grid;
   grid-template-columns: repeat(
