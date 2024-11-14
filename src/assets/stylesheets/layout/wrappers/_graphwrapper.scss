@@ -1,13 +1,13 @@
 @use "../../abstracts/" as *;
 
-@media screen and (min-width: $breakpoint-small-medium) {
-  .graph-wrapper {
-    grid-column: span 3;
-  }
-}
+// @media screen and (min-width: $breakpoint-small-medium) {
+//   .graph-wrapper {
+//     grid-column: span 3;
+//   }
+// }
 
-@media screen and (min-width: $breakpoint-medium) {
-  .graph-wrapper {
-    grid-column-start: 2;
-  }
-}
+// @media screen and (min-width: $breakpoint-medium) {
+//   .graph-wrapper {
+//     grid-column-start: 2;
+//   }
+// }

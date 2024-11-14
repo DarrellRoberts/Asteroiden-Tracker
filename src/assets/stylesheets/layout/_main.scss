@@ -1,17 +1,42 @@
 @use "../abstracts" as *;
 
-.main-wrapper {
+.layout-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax($minimum-grid-column-width, 1fr)
-  );
-  justify-items: center;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main-top"
+    "main-bottom main-top"
+    "footer footer";
 }
 
-@media screen and (min-width: $breakpoint-medium) {
-  .main-wrapper {
-    grid-template-columns: 2fr 2fr;
-    grid-template-rows: 1fr 1fr;
+.header-wrapper {
+  grid-area: header;
+}
+
+.asteroid {
+  grid-area: sidebar;
+}
+
+.stats-div {
+  grid-area: main-top;
+}
+
+.graph-div {
+  grid-area: main-bottom;
+}
+
+.footer-wrapper {
+  grid-area: footer;
+}
+
+@media screen and (min-width: $breakpoint-small-medium) {
+  .layout-grid {
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-areas:
+      "header header header"
+      "sidebar main-top main-top"
+      "sidebar main-bottom main-bottom"
+      "footer footer footer";
   }
 }

@@ -16,6 +16,7 @@ body {
   background-position: center;
   & h1 {
     font-size: clamp(2rem, 2vw, 4rem);
+    text-align: center;
   }
   & h2 {
     font-size: clamp(1.25rem, 2vw, 1.5rem);

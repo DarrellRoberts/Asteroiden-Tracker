@@ -65,30 +65,40 @@ watch(index, (newIndex) => {
 });
 
 onMounted(() => {
-  getData();
+  // getData();
 });
 </script>
 
 <template>
-  <Header
-    :index="index"
-    :showRandom="showRandom"
-    :loading="loading"
-    :data-size="fetchedData?.length"
-    @incrementIndex="incrementIndex"
-    @decreaseIndex="decreaseIndex"
-    @randomise="randomise"
-  />
-  <main class="main-wrapper">
-    <AsteroidContainer
-      :fetched-data="singleAsteroid"
-      :loading="loading"
-      :index="index"
-    />
-    <StatsGrid :fetched-data="singleAsteroid" :loading="loading" />
-    <Graph :fetched-data="singleAsteroid" :loading="loading" />
-  </main>
-  <Footer />
+  <div class="layout-grid">
+    <header class="header-wrapper">
+      <Header
+        :index="index"
+        :showRandom="showRandom"
+        :loading="loading"
+        :data-size="fetchedData?.length"
+        @incrementIndex="incrementIndex"
+        @decreaseIndex="decreaseIndex"
+        @randomise="randomise"
+      />
+    </header>
+    <aside class="asteroid">
+      <AsteroidContainer
+        :fetched-data="singleAsteroid"
+        :loading="loading"
+        :index="index"
+      />
+    </aside>
+    <section class="stats-div">
+      <StatsGrid :fetched-data="singleAsteroid" :loading="loading" />
+    </section>
+    <section class="graph-div">
+      <Graph :fetched-data="singleAsteroid" :loading="loading" />
+    </section>
+    <footer class="footer-wrapper">
+      <Footer />
+    </footer>
+  </div>
 </template>
 
 <style lang="scss" scoped>
