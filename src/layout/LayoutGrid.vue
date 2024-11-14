@@ -65,7 +65,7 @@ watch(index, (newIndex) => {
 });
 
 onMounted(() => {
-  // getData();
+  getData();
 });
 </script>
 
